@@ -10,39 +10,77 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List mydatalist = [
+      {
+        "name": "ha_mad.x",
+        "dp":
+            "https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "bg":
+            "https://images.pexels.com/photos/1368382/pexels-photo-1368382.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      },
+      {
+        "name": "jane_doe",
+        "dp":
+            "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "bg":
+            "https://images.pexels.com/photos/705425/pexels-photo-705425.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      },
+      {
+        "name": "john_smith",
+        "dp":
+            "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "bg":
+            "https://images.pexels.com/photos/2043035/pexels-photo-2043035.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      },
+      {
+        "name": "alex_k",
+        "dp":
+            "https://images.pexels.com/photos/1382734/pexels-photo-1382734.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "bg":
+            "https://images.pexels.com/photos/1264075/pexels-photo-1264075.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      },
+      {
+        "name": "maria_g",
+        "dp":
+            "https://images.pexels.com/photos/1181695/pexels-photo-1181695.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "bg":
+            "https://images.pexels.com/photos/3822971/pexels-photo-3822971.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      }
+    ];
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
           body: SafeArea(
               child: PageView.builder(
+                  itemCount: mydatalist.length,
                   itemBuilder: (context, index) => Container(
                         padding: const EdgeInsets.symmetric(
                             vertical: 20, horizontal: 30),
-                        decoration: const BoxDecoration(
+                        decoration: BoxDecoration(
                             image: DecorationImage(
                                 fit: BoxFit.cover,
-                                image: NetworkImage(
-                                    'https://images.pexels.com/photos/2129796/pexels-photo-2129796.png?auto=compress&cs=tinysrgb&w=600'))),
+                                image: NetworkImage(mydatalist[index]["bg"]))),
                         child: Column(
                           children: [
                             const Divider(
                               color: Colors.white,
                               thickness: 3,
                             ),
-                            const ListTile(
+                            ListTile(
                               leading: CircleAvatar(
-                                backgroundImage: NetworkImage(
-                                    'https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'),
+                                backgroundImage:
+                                    NetworkImage(mydatalist[index]["dp"]),
                               ),
                               title: Text(
-                                "ha_mad.x",
+                                mydatalist[index]["name"],
                                 style: TextStyle(color: Colors.white),
                               ),
                               subtitle: Text(
-                                "username",
-                                style: TextStyle(color: Colors.white),
+                                mydatalist[index]["name"],
+                                style: const TextStyle(color: Colors.white),
                               ),
-                              trailing: Icon(
+                              trailing: const Icon(
                                 Icons.more_vert,
                                 color: Colors.white,
                               ),
